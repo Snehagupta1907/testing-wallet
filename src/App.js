@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import { HashConnect, HashConnectConnectionState } from "hashconnect";
 import { LedgerId } from "@hashgraph/sdk";
 
+const tele=window.Telegram.WebApp
+
 const appMetadata = {
   name: "Hashgraph Hub Test",
   description: "Testing Hashgraph Hub hashconnect",
@@ -23,6 +25,10 @@ function App() {
   useEffect(() => {
     init();
   }, []);
+  
+  useEffect(()=>{
+    tele.ready();
+  },[])
 
   const init = async () => {
     //create the hashconnect instance
